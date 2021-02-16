@@ -89,6 +89,13 @@ public class GamePanel extends JPanel implements ActionListener {
 
     }
     public void checkApple(){
+        if ((x[0] == appleX) && (y[0] == appleY)) {
+            bodyParts++;
+            applesEaten++;
+            newApple();
+        }
+    }
+    public void checkCollisions(){
         for (int i = bodyParts; i > 0; i--) {
             // checks if head collides with body
             if ((x[0] == x[i]) && (y[0] == y[i])) {
@@ -114,10 +121,6 @@ public class GamePanel extends JPanel implements ActionListener {
         if (!running) {
             timer.stop();
         }
-
-    }
-    public void checkCollisions(){
-
     }
     public void gameOver(Graphics g){
 
